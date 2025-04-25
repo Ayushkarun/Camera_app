@@ -1,3 +1,4 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
 class Camera_app_trial extends StatefulWidget {
@@ -8,8 +9,26 @@ class Camera_app_trial extends StatefulWidget {
 }
 
 class _Camera_app_trialState extends State<Camera_app_trial> {
+  List<CameraDescription> cameras =[];
+  CameraController? cameraController;
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      // appBar: AppBar(
+      //   title: Text('Camera App Trial'),
+      // ),
+
+    );
+  }
+
+  Future<void> _setupCameraController() async{
+   List<CameraDescription> _cameras = await availableCameras();
+   if(_cameras.isNotEmpty){
+    setState(() {
+      cameras=_cameras;
+      cameraController=CameraController(_cameras.first, ResolutionPreset.high);
+    });
+   
+   }
   }
 }
