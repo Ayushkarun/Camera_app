@@ -9,26 +9,46 @@ class Camera_app_trial extends StatefulWidget {
 }
 
 class _Camera_app_trialState extends State<Camera_app_trial> {
-  List<CameraDescription> cameras =[];
+  List<CameraDescription> cameras = [];
   CameraController? cameraController;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _setupCameraController();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('Camera App Trial'),
-      // ),
-
+body: _buildUI(),
     );
   }
 
-  Future<void> _setupCameraController() async{
-   List<CameraDescription> _cameras = await availableCameras();
-   if(_cameras.isNotEmpty){
-    setState(() {
-      cameras=_cameras;
-      cameraController=CameraController(_cameras.first, ResolutionPreset.high);
-    });
-   
-   }
+  Widget _buildUI()
+  {
+    if(cameraController==null|| cameraController?.value.isInitialized==false)
+    {
+      return const Center(
+child: CircularProgressIndicator(),
+      );
+    }
+    return SafeArea(child: SizedBox.expand(),);
+  }
+
+  Future<void> _setupCameraController() async {
+    List<CameraDescription> _cameras = await availableCameras();
+    if (_cameras.isNotEmpty) {
+      setState(() {
+        cameras = _cameras;
+        cameraController = CameraController(
+          _cameras.first,
+          ResolutionPreset.high,
+        );
+      });
+      cameraController?.initialize().then((_) {
+        setState(() {});
+      });
+    }
   }
 }
