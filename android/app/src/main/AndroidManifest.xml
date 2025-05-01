@@ -1,5 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Permission to write to shared/external storage (for saving captured images) -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        <!-- Permission to access and use the device camera -->
+    <uses-permission android:name="android.permission.CAMERA" />
+      <!-- Permission to read from shared/external storage (for accessing saved images) -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:label="camera"
         android:name="${applicationName}"
