@@ -1,8 +1,9 @@
 
 import 'package:flutter/material.dart';
-import 'package:my_camera_app/Screen/Home.dart';
+import 'package:my_camera_app/Screen/camera_app_trial.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(app());
 }
 
@@ -13,7 +14,7 @@ class app extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Camera_app_trial(),
+      home: CameraAppTrial(),
     );
   }
 }
