@@ -2,8 +2,7 @@
 Add these packages under dependencies::
 
 yaml
-Copy
-Edit
+
 dependencies:
   flutter:
     sdk: flutter
@@ -14,7 +13,7 @@ dependencies:
 Then run:
 
 bash
-Copy
+ 
 Edit
 flutter pub get
 ✅ 2. Project Structure (Simple Breakdown)
@@ -30,7 +29,7 @@ lib/
 ✅ 3. File-by-File Beginner Explanation
 🔸 main.dart — App starting point
 dart
-Copy
+ 
 Edit
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); // Important to safely initialize camera before app starts
@@ -79,7 +78,7 @@ It uses GridView to show all photos in rows/columns.
 Example:
 
 dart
-Copy
+ 
 Edit
 GridView.builder(
   itemCount: widget.images.length,
@@ -95,7 +94,7 @@ GridView.builder(
 This file does only one thing: shows the image in full screen using InteractiveViewer, so users can zoom in/out.
 
 dart
-Copy
+ 
 Edit
 child: InteractiveViewer(
   child: Image.file(File(imagePath)),
@@ -134,7 +133,7 @@ Here are the full contents of the four files from your Flutter camera app projec
 This file sets up the CameraAppTrial widget, handles camera initialization, capturing images, saving, and updating the thumbnail.
 
 dart
-Copy
+ 
 Edit
 import 'dart:io';
 import 'package:camera/camera.dart';
@@ -203,7 +202,7 @@ class _CameraAppTrialState extends State<CameraAppTrial> {
         '${DateTime.now().millisecondsSinceEpoch}.jpg',
       );
 
-      final newImage = await File(image.path).copy(newPath);
+      final newImage = await File(image.path). (newPath);
 
       setState(() {
         imagePaths.insert(0, newImage.path);
@@ -284,7 +283,7 @@ class _CameraAppTrialState extends State<CameraAppTrial> {
 Displays the list of captured images with delete, share, and fullscreen view options.
 
 dart
-Copy
+ 
 Edit
 import 'dart:io';
 import 'package:flutter/material.dart';
@@ -362,7 +361,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
 Shows a single image in full screen.
 
 dart
-Copy
+ 
 Edit
 import 'dart:io';
 import 'package:flutter/material.dart';
@@ -385,7 +384,7 @@ class FullScreenImage extends StatelessWidget {
 Starts the app and gets the camera list.
 
 dart
-Copy
+ 
 Edit
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
@@ -428,7 +427,7 @@ Perfect! Let me now explain each of your files line by line with beginner-friend
 
 ✅ 1. main.dart – App Entry Point
 dart
-Copy
+ 
 Edit
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
